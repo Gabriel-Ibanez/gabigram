@@ -2,15 +2,16 @@ import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:flutter_modular/flutter_modular.dart';
-import 'package:iesbgram/app/constants.dart';
-import 'package:iesbgram/app/modules/profile/padding_widget.dart';
-import 'package:iesbgram/app/modules/profile/user_store.dart';
+import 'package:gabigram/app/constants.dart';
+import 'package:gabigram/app/modules/profile/padding_widget.dart';
+import 'package:gabigram/app/modules/profile/user_store.dart';
 
 class ProfilePage extends StatefulWidget {
   const ProfilePage({Key? key}) : super(key: key);
   @override
   ProfilePageState createState() => ProfilePageState();
 }
+
 class ProfilePageState extends ModularState<ProfilePage, UserStore> {
   @override
   Widget build(BuildContext context) {
@@ -31,7 +32,6 @@ class ProfilePageState extends ModularState<ProfilePage, UserStore> {
           _UserHeader(store),
           _UserSubHeading(store),
           _UserGallery(),
-
         ],
       ),
     );
@@ -39,7 +39,6 @@ class ProfilePageState extends ModularState<ProfilePage, UserStore> {
 }
 
 class _UserHeader extends StatelessWidget {
-
   UserStore store;
   _UserHeader(this.store);
 
@@ -82,7 +81,6 @@ class _UserHeader extends StatelessWidget {
 }
 
 class _UserSubHeading extends StatelessWidget {
-
   UserStore store;
   _UserSubHeading(this.store);
 
@@ -95,7 +93,8 @@ class _UserSubHeading extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
           Observer(builder: (_) {
-            return Text((store.user?.displayName ?? 'Sem nome'), style: TextStyle(fontWeight: FontWeight.bold));
+            return Text((store.user?.displayName ?? 'Sem nome'),
+                style: TextStyle(fontWeight: FontWeight.bold));
           }),
           Observer(builder: (_) {
             return Text(store.bio ?? '');
@@ -124,22 +123,38 @@ class _UserGallery extends StatelessWidget {
         physics: NeverScrollableScrollPhysics(),
         shrinkWrap: true,
         children: [
-          Image.network('http://lorempixel.com.br/300/300/?${DateTime.now().microsecond}'),
-          Image.network('http://lorempixel.com.br/300/300/?${DateTime.now().microsecond}'),
-          Image.network('http://lorempixel.com.br/300/300/?${DateTime.now().microsecond}'),
-          Image.network('http://lorempixel.com.br/300/300/?${DateTime.now().microsecond}'),
-          Image.network('http://lorempixel.com.br/300/300/?${DateTime.now().microsecond}'),
-          Image.network('http://lorempixel.com.br/300/300/?${DateTime.now().microsecond}'),
-          Image.network('http://lorempixel.com.br/300/300/?${DateTime.now().microsecond}'),
-          Image.network('http://lorempixel.com.br/300/300/?${DateTime.now().microsecond}'),
-          Image.network('http://lorempixel.com.br/300/300/?${DateTime.now().microsecond}'),
-          Image.network('http://lorempixel.com.br/300/300/?${DateTime.now().microsecond}'),
-          Image.network('http://lorempixel.com.br/300/300/?${DateTime.now().microsecond}'),
-          Image.network('http://lorempixel.com.br/300/300/?${DateTime.now().microsecond}'),
-          Image.network('http://lorempixel.com.br/300/300/?${DateTime.now().microsecond}'),
-          Image.network('http://lorempixel.com.br/300/300/?${DateTime.now().microsecond}'),
-          Image.network('http://lorempixel.com.br/300/300/?${DateTime.now().microsecond}'),
-          Image.network('http://lorempixel.com.br/300/300/?${DateTime.now().microsecond}'),
+          Image.network(
+              'http://lorempixel.com.br/300/300/?${DateTime.now().microsecond}'),
+          Image.network(
+              'http://lorempixel.com.br/300/300/?${DateTime.now().microsecond}'),
+          Image.network(
+              'http://lorempixel.com.br/300/300/?${DateTime.now().microsecond}'),
+          Image.network(
+              'http://lorempixel.com.br/300/300/?${DateTime.now().microsecond}'),
+          Image.network(
+              'http://lorempixel.com.br/300/300/?${DateTime.now().microsecond}'),
+          Image.network(
+              'http://lorempixel.com.br/300/300/?${DateTime.now().microsecond}'),
+          Image.network(
+              'http://lorempixel.com.br/300/300/?${DateTime.now().microsecond}'),
+          Image.network(
+              'http://lorempixel.com.br/300/300/?${DateTime.now().microsecond}'),
+          Image.network(
+              'http://lorempixel.com.br/300/300/?${DateTime.now().microsecond}'),
+          Image.network(
+              'http://lorempixel.com.br/300/300/?${DateTime.now().microsecond}'),
+          Image.network(
+              'http://lorempixel.com.br/300/300/?${DateTime.now().microsecond}'),
+          Image.network(
+              'http://lorempixel.com.br/300/300/?${DateTime.now().microsecond}'),
+          Image.network(
+              'http://lorempixel.com.br/300/300/?${DateTime.now().microsecond}'),
+          Image.network(
+              'http://lorempixel.com.br/300/300/?${DateTime.now().microsecond}'),
+          Image.network(
+              'http://lorempixel.com.br/300/300/?${DateTime.now().microsecond}'),
+          Image.network(
+              'http://lorempixel.com.br/300/300/?${DateTime.now().microsecond}'),
         ],
       ),
     );

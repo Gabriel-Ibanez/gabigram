@@ -1,4 +1,4 @@
-import 'package:iesbgram/app/modules/search/search_page.dart';
+import 'package:gabigram/app/modules/search/search_page.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:flutter_modular_test/flutter_modular_test.dart';
 

@@ -1,18 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:flutter_modular/flutter_modular.dart';
-import 'package:iesbgram/app/constants.dart';
-import 'package:iesbgram/app/modules/login/login_store.dart';
+import 'package:gabigram/app/constants.dart';
+import 'package:gabigram/app/modules/login/login_store.dart';
 import 'package:mobx/mobx.dart';
 
 class LoginPage extends StatefulWidget {
   final String title;
-  const LoginPage({Key? key, this.title = 'Iesbgram'}) : super(key: key);
+  const LoginPage({Key? key, this.title = 'gabigram'}) : super(key: key);
   @override
   LoginPageState createState() => LoginPageState();
 }
-class LoginPageState extends ModularState<LoginPage, LoginStore> {
 
+class LoginPageState extends ModularState<LoginPage, LoginStore> {
   late final TextEditingController _emailController;
   late final TextEditingController _passwordController;
 
@@ -25,10 +25,8 @@ class LoginPageState extends ModularState<LoginPage, LoginStore> {
     _emailController = TextEditingController();
     _passwordController = TextEditingController();
 
-    _disposer = when(
-      (_) => store.user != null,
-      () => Modular.to.pushReplacementNamed(Constants.Routes.HOME)
-    );
+    _disposer = when((_) => store.user != null,
+        () => Modular.to.pushReplacementNamed(Constants.Routes.HOME));
   }
 
   @override
@@ -37,7 +35,6 @@ class LoginPageState extends ModularState<LoginPage, LoginStore> {
     super.dispose();
   }
 
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -45,7 +42,8 @@ class LoginPageState extends ModularState<LoginPage, LoginStore> {
         title: Text(widget.title),
         actions: [
           TextButton(
-            child: Text('Não tem cadastro?', style: TextStyle(color: Theme.of(context).buttonColor)),
+            child: Text('Não tem cadastro?',
+                style: TextStyle(color: Theme.of(context).buttonColor)),
             onPressed: () {
               Modular.to.pushNamed(Constants.Routes.REGISTER);
             },
@@ -65,15 +63,13 @@ class LoginPageState extends ModularState<LoginPage, LoginStore> {
             TextFormField(
               controller: _emailController,
               decoration: InputDecoration(
-                labelText: 'E-mail:',
-                hintText: 'fulano@provedor.com'
-              ),
+                  labelText: 'E-mail:', hintText: 'fulano@provedor.com'),
             ),
             SizedBox(height: 24),
             TextFormField(
               controller: _passwordController,
               decoration: InputDecoration(
-                  labelText: 'Senha:',
+                labelText: 'Senha:',
               ),
               obscureText: true,
             ),
@@ -84,7 +80,8 @@ class LoginPageState extends ModularState<LoginPage, LoginStore> {
                   if (store.loading) {
                     return Transform.scale(
                       scale: 0.5,
-                      child: CircularProgressIndicator(color: Theme.of(context).buttonColor),
+                      child: CircularProgressIndicator(
+                          color: Theme.of(context).buttonColor),
                     );
                   }
                   return Text('ACESSAR');
@@ -92,9 +89,8 @@ class LoginPageState extends ModularState<LoginPage, LoginStore> {
               ),
               onPressed: () {
                 store.loginWith(
-                  email: _emailController.text,
-                  password: _passwordController.text
-                );
+                    email: _emailController.text,
+                    password: _passwordController.text);
               },
             ),
             TextButton(

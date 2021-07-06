@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:flutter_modular/flutter_modular.dart';
-import 'package:iesbgram/app/modules/profile/padding_widget.dart';
-import 'package:iesbgram/app/modules/profile/user_store.dart';
+import 'package:gabigram/app/modules/profile/padding_widget.dart';
+import 'package:gabigram/app/modules/profile/user_store.dart';
 import 'package:mobx/mobx.dart';
 
 class EditPage extends StatefulWidget {
@@ -11,8 +11,8 @@ class EditPage extends StatefulWidget {
   @override
   EditPageState createState() => EditPageState();
 }
-class EditPageState extends ModularState<EditPage, UserStore> {
 
+class EditPageState extends ModularState<EditPage, UserStore> {
   late final TextEditingController _nameController;
   late final TextEditingController _bioController;
 
@@ -35,7 +35,6 @@ class EditPageState extends ModularState<EditPage, UserStore> {
     reaction((_) => store.bio, (_) {
       _bioController.text = store.bio ?? '';
     });
-
   }
 
   @override
@@ -51,19 +50,24 @@ class EditPageState extends ModularState<EditPage, UserStore> {
                 child: Center(
                   child: Transform.scale(
                     scale: 0.5,
-                    child: CircularProgressIndicator(color: Theme.of(context).buttonColor),
+                    child: CircularProgressIndicator(
+                        color: Theme.of(context).buttonColor),
                   ),
                 ),
               );
             }
             return TextButton(
-              child: Text('Concluir', style: TextStyle(color: Theme.of(context).buttonColor, fontWeight: FontWeight.bold)),
+              child: Text('Concluir',
+                  style: TextStyle(
+                      color: Theme.of(context).buttonColor,
+                      fontWeight: FontWeight.bold)),
               onPressed: () {
                 if (_nameController.text.isNotEmpty) {
-                  store.updateProfile(
-                      displayName: _nameController.text,
-                      bio: _bioController.text
-                  ).then((_) => Navigator.of(context).pop());
+                  store
+                      .updateProfile(
+                          displayName: _nameController.text,
+                          bio: _bioController.text)
+                      .then((_) => Navigator.of(context).pop());
                 }
               },
             );
@@ -91,12 +95,10 @@ class EditPageState extends ModularState<EditPage, UserStore> {
             maxLengh: 50,
           ),
           _EditField(
-            label: 'Bio:',
-            focusNode: _bioFocusNode,
-            controller: _bioController,
-            maxLengh: 140
-          ),
-
+              label: 'Bio:',
+              focusNode: _bioFocusNode,
+              controller: _bioController,
+              maxLengh: 140),
         ],
       ),
     );
@@ -104,12 +106,15 @@ class EditPageState extends ModularState<EditPage, UserStore> {
 }
 
 class _EditField extends StatelessWidget {
-
   String label;
   FocusNode focusNode;
   TextEditingController controller;
   int? maxLengh;
-  _EditField({required this.label, required this.focusNode, required this.controller, this.maxLengh});
+  _EditField(
+      {required this.label,
+      required this.focusNode,
+      required this.controller,
+      this.maxLengh});
 
   @override
   Widget build(BuildContext context) {

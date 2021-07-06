@@ -6,12 +6,13 @@ class FeedPage extends StatefulWidget {
   @override
   FeedPageState createState() => FeedPageState();
 }
+
 class FeedPageState extends State<FeedPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Iesbgram'),
+        title: Text('gabigram'),
         actions: [
           IconButton(
             icon: Icon(Icons.add_box_outlined),

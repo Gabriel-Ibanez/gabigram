@@ -1,6 +1,6 @@
 import 'package:flutter_test/flutter_test.dart';
-import 'package:iesbgram/app/modules/onboarding/onboarding_store.dart';
- 
+import 'package:gabigram/app/modules/onboarding/onboarding_store.dart';
+
 void main() {
   late OnboardingStore store;
 

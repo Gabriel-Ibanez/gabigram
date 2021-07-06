@@ -2,18 +2,18 @@ import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:flutter_modular/flutter_modular.dart';
-import 'package:iesbgram/app/constants.dart';
-import 'package:iesbgram/app/modules/register/register_store.dart';
+import 'package:gabigram/app/constants.dart';
+import 'package:gabigram/app/modules/register/register_store.dart';
 import 'package:mobx/mobx.dart';
 
 class RegisterPage extends StatefulWidget {
   final String title;
-  const RegisterPage({Key? key, this.title = 'Iesbgram'}) : super(key: key);
+  const RegisterPage({Key? key, this.title = 'gabigram'}) : super(key: key);
   @override
   RegisterPageState createState() => RegisterPageState();
 }
-class RegisterPageState extends ModularState<RegisterPage, RegisterStore> {
 
+class RegisterPageState extends ModularState<RegisterPage, RegisterStore> {
   late PageController _pageController;
 
   late final TextEditingController _nameController;
@@ -31,11 +31,8 @@ class RegisterPageState extends ModularState<RegisterPage, RegisterStore> {
     _emailController = TextEditingController();
     _passwordController = TextEditingController();
 
-    _disposer = when(
-      (_) => store.user != null,
-      () => Modular.to.pushReplacementNamed(Constants.Routes.HOME)
-    );
-
+    _disposer = when((_) => store.user != null,
+        () => Modular.to.pushReplacementNamed(Constants.Routes.HOME));
   }
 
   @override
@@ -54,10 +51,12 @@ class RegisterPageState extends ModularState<RegisterPage, RegisterStore> {
         label: 'Qual é o seu nome?',
         showsBackButton: false,
         onNext: () {
-          _pageController.nextPage(duration: Duration(seconds: 1), curve: Curves.easeInOut);
+          _pageController.nextPage(
+              duration: Duration(seconds: 1), curve: Curves.easeInOut);
         },
         onBack: () {
-          _pageController.previousPage(duration: Duration(seconds: 1), curve: Curves.easeInOut);
+          _pageController.previousPage(
+              duration: Duration(seconds: 1), curve: Curves.easeInOut);
         },
       ),
       _FormField(
@@ -65,10 +64,12 @@ class RegisterPageState extends ModularState<RegisterPage, RegisterStore> {
         label: 'Qual é o seu melhor e-mail?',
         showsBackButton: true,
         onNext: () {
-          _pageController.nextPage(duration: Duration(seconds: 1), curve: Curves.easeInOut);
+          _pageController.nextPage(
+              duration: Duration(seconds: 1), curve: Curves.easeInOut);
         },
         onBack: () {
-          _pageController.previousPage(duration: Duration(seconds: 1), curve: Curves.easeInOut);
+          _pageController.previousPage(
+              duration: Duration(seconds: 1), curve: Curves.easeInOut);
         },
       ),
       _FormField(
@@ -79,11 +80,11 @@ class RegisterPageState extends ModularState<RegisterPage, RegisterStore> {
           store.registerUser(
               name: _nameController.text,
               email: _emailController.text,
-              password: _passwordController.text
-          );
+              password: _passwordController.text);
         },
         onBack: () {
-          _pageController.previousPage(duration: Duration(seconds: 1), curve: Curves.easeInOut);
+          _pageController.previousPage(
+              duration: Duration(seconds: 1), curve: Curves.easeInOut);
         },
       ),
     ],
@@ -116,13 +117,17 @@ class RegisterPageState extends ModularState<RegisterPage, RegisterStore> {
 }
 
 class _FormField extends StatelessWidget {
-
   final TextEditingController controller;
   final bool showsBackButton;
   final String label;
   final VoidCallback onNext;
   final VoidCallback onBack;
-  _FormField({required this.controller, this.showsBackButton = true, required this.label, required this.onNext, required this.onBack});
+  _FormField(
+      {required this.controller,
+      this.showsBackButton = true,
+      required this.label,
+      required this.onNext,
+      required this.onBack});
 
   @override
   Widget build(BuildContext context) {
@@ -131,10 +136,12 @@ class _FormField extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.start,
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        showsBackButton ? IconButton(
-          icon: Icon(Icons.arrow_upward),
-          onPressed: onBack,
-        ) : SizedBox.fromSize(size: Size.zero),
+        showsBackButton
+            ? IconButton(
+                icon: Icon(Icons.arrow_upward),
+                onPressed: onBack,
+              )
+            : SizedBox.fromSize(size: Size.zero),
         Flexible(
           child: Container(
             padding: EdgeInsets.symmetric(horizontal: 24),
@@ -144,9 +151,11 @@ class _FormField extends StatelessWidget {
               children: [
                 FittedBox(
                   fit: BoxFit.fitWidth,
-                  child: Text(
-                      label,
-                      style: Theme.of(context).textTheme.headline1!.copyWith(fontSize: 60),
+                  child: Text(label,
+                      style: Theme.of(context)
+                          .textTheme
+                          .headline1!
+                          .copyWith(fontSize: 60),
                       maxLines: 1),
                 ),
                 TextFormField(
@@ -167,5 +176,4 @@ class _FormField extends StatelessWidget {
       ],
     );
   }
-
 }

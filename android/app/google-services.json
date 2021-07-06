@@ -1,33 +1,33 @@
 {
   "project_info": {
-    "project_number": "647148768508",
-    "project_id": "iesbgram-2c665",
-    "storage_bucket": "iesbgram-2c665.appspot.com"
+    "project_number": "48551489723",
+    "project_id": "gabigram-e6309",
+    "storage_bucket": "gabigram-e6309.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:647148768508:android:76fdca9f4860a13a209b79",
+        "mobilesdk_app_id": "1:48551489723:android:e7fca94825e5c6f686b99e",
         "android_client_info": {
-          "package_name": "com.example.iesbgram"
+          "package_name": "com.example.gabigram"
         }
       },
       "oauth_client": [
         {
-          "client_id": "647148768508-n07rqjgl9fag22ccn7aa6tr0nucdi75i.apps.googleusercontent.com",
+          "client_id": "48551489723-cimhmlq71nnu400tklhb3d8s559pqrhk.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyB8hSz5PSsf5PxoMWTUN6pKMdOmrRYYttU"
+          "current_key": "AIzaSyCEVTYaYgTmwVI71ZeexrMwIELorVNZDfo"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "647148768508-n07rqjgl9fag22ccn7aa6tr0nucdi75i.apps.googleusercontent.com",
+              "client_id": "48551489723-cimhmlq71nnu400tklhb3d8s559pqrhk.apps.googleusercontent.com",
               "client_type": 3
             }
           ]

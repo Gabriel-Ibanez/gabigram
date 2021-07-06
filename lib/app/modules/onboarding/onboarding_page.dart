@@ -1,16 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
-import 'package:iesbgram/app/constants.dart';
-import 'package:iesbgram/app/modules/onboarding/onboarding_store.dart';
+import 'package:gabigram/app/constants.dart';
+import 'package:gabigram/app/modules/onboarding/onboarding_store.dart';
 
 class OnboardingPage extends StatefulWidget {
   final String title;
-  const OnboardingPage({Key? key, this.title = 'Iesbgram'}) : super(key: key);
+  const OnboardingPage({Key? key, this.title = 'gabigram'}) : super(key: key);
   @override
   OnboardingPageState createState() => OnboardingPageState();
 }
-class OnboardingPageState extends ModularState<OnboardingPage, OnboardingStore> {
 
+class OnboardingPageState
+    extends ModularState<OnboardingPage, OnboardingStore> {
   late PageController _pageController;
 
   @override
@@ -46,12 +47,13 @@ class OnboardingPageState extends ModularState<OnboardingPage, OnboardingStore> 
               text: 'Compartilhe a alegria!',
               child: Column(
                 children: [
-                  SizedBox(height: 16),
+                  SizedBox(height: 26),
                   ElevatedButton(
                     child: Text('CADASTRE-SE'),
                     onPressed: () {
                       store.markOnboardingDone();
-                      Modular.to.pushReplacementNamed(Constants.Routes.REGISTER);
+                      Modular.to
+                          .pushReplacementNamed(Constants.Routes.REGISTER);
                     },
                   ),
                   TextButton(
@@ -72,7 +74,6 @@ class OnboardingPageState extends ModularState<OnboardingPage, OnboardingStore> 
 }
 
 class _OnboardingItem extends StatelessWidget {
-
   final ImageProvider image;
   final String text;
   final Widget? child;
@@ -80,14 +81,12 @@ class _OnboardingItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-
     return Container(
       padding: EdgeInsets.only(
-        left: 24,
-        right: 24,
-        top: 16,
-        bottom: MediaQuery.of(context).padding.bottom + 96
-      ),
+          left: 24,
+          right: 24,
+          top: 16,
+          bottom: MediaQuery.of(context).padding.bottom + 96),
       child: Column(
         mainAxisSize: MainAxisSize.max,
         mainAxisAlignment: MainAxisAlignment.center,
@@ -97,7 +96,8 @@ class _OnboardingItem extends StatelessWidget {
           ),
           SizedBox(height: 32),
           Flexible(
-            child: Text(text, style: TextStyle(fontSize: 20, fontWeight: FontWeight.w300)),
+            child: Text(text,
+                style: TextStyle(fontSize: 20, fontWeight: FontWeight.w300)),
           ),
           child ?? SizedBox.fromSize(size: Size.zero),
           //Texto
@@ -105,6 +105,5 @@ class _OnboardingItem extends StatelessWidget {
         ],
       ),
     );
-
   }
 }

@@ -1,8 +1,8 @@
 cmake_minimum_required(VERSION 3.10)
 project(runner LANGUAGES CXX)
 
-set(BINARY_NAME "iesbgram")
-set(APPLICATION_ID "com.example.iesbgram")
+set(BINARY_NAME "gabigram")
+set(APPLICATION_ID "com.example.gabigram")
 
 cmake_policy(SET CMP0063 NEW)
 

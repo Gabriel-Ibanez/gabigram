@@ -1,6 +1,6 @@
 import 'package:flutter_test/flutter_test.dart';
-import 'package:iesbgram/app/modules/login/login_store.dart';
- 
+import 'package:gabigram/app/modules/login/login_store.dart';
+
 void main() {
   late LoginStore store;
 

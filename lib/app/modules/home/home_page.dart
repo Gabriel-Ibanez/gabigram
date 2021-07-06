@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
-import 'package:iesbgram/app/constants.dart';
+import 'package:gabigram/app/constants.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -10,7 +10,6 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-
   int _currentIndex = 0;
 
   @override
@@ -24,10 +23,17 @@ class _HomePageState extends State<HomePage> {
       _currentIndex = index;
     });
     switch (index) {
-      case 0: Modular.to.navigate(Constants.Routes.HOME + Constants.Routes.FEED); break;
-      case 1: Modular.to.navigate(Constants.Routes.HOME + Constants.Routes.SEARCH); break;
-      case 2: Modular.to.navigate(Constants.Routes.HOME + Constants.Routes.PROFILE); break;
-      default: break;
+      case 0:
+        Modular.to.navigate(Constants.Routes.HOME + Constants.Routes.FEED);
+        break;
+      case 1:
+        Modular.to.navigate(Constants.Routes.HOME + Constants.Routes.SEARCH);
+        break;
+      case 2:
+        Modular.to.navigate(Constants.Routes.HOME + Constants.Routes.PROFILE);
+        break;
+      default:
+        break;
     }
   }
 
@@ -41,18 +47,10 @@ class _HomePageState extends State<HomePage> {
         showUnselectedLabels: false,
         onTap: _onTabChange,
         items: [
+          BottomNavigationBarItem(icon: Icon(Icons.home_filled), label: 'Home'),
+          BottomNavigationBarItem(icon: Icon(Icons.search), label: 'Buscar'),
           BottomNavigationBarItem(
-            icon: Icon(Icons.home_filled),
-            label: 'Home'
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.search),
-            label: 'Buscar'
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.person_outline),
-            label: 'Perfil'
-          ),
+              icon: Icon(Icons.person_outline), label: 'Perfil'),
         ],
       ),
     );

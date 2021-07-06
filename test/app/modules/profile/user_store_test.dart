@@ -1,6 +1,6 @@
 import 'package:flutter_test/flutter_test.dart';
-import 'package:iesbgram/app/modules/profile/user_store.dart';
- 
+import 'package:gabigram/app/modules/profile/user_store.dart';
+
 void main() {
   late UserStore store;
 

@@ -1,7 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:iesbgram/app/modules/login/login_store.dart';
+import 'package:gabigram/app/modules/login/login_store.dart';
 import 'package:flutter_modular/flutter_modular.dart';
-import 'package:iesbgram/app/constants.dart';
+import 'package:gabigram/app/constants.dart';
 import 'login_page.dart';
 import 'forgot_password_page.dart';
 
@@ -16,7 +16,6 @@ class LoginModule extends Module {
     ChildRoute(Modular.initialRoute, child: (context, args) => LoginPage()),
     ChildRoute(Constants.Routes.FORGOT_PASSWORD,
         child: (context, args) => ForgotPasswordPage(),
-        transition: TransitionType.rightToLeft
-    ),
+        transition: TransitionType.rightToLeft),
   ];
 }
